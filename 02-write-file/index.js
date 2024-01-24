@@ -13,7 +13,6 @@ console.log('Welcome! Enter text (type "exit" to terminate):');
 
 rl.on('line', (input) => {
     if (input.toLowerCase() === 'exit') {
-        console.log('Farewell!');
         rl.close();
     } else {
         writeStream.write(input + '\n');
@@ -21,5 +20,10 @@ rl.on('line', (input) => {
 });
 
 rl.on('close', () => {
+    console.log('Farewell!');
     process.exit();
+});
+
+process.on('SIGINT', () => {
+    rl.close();
 });
