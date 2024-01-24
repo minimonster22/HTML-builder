@@ -15,8 +15,6 @@ async function getFileInformation() {
                 const fileExtension = path.extname(file.name).slice(1);
 
                 console.log(`${file.name}-${fileExtension}-${(fileStat.size / 1024).toFixed(3)}kb`);
-            } else {
-                console.error(`Error: ${file.name} is a directory.`);
             }
         }
     } catch (error) {
